@@ -5,6 +5,22 @@ const Dev = require('../models/Dev');
 //INDEX, STORE, UPDATE, DELETE, SHOW
 
 module.exports = {
+
+    async index(req, res) {
+        const { user } = req.headers;
+
+        const loggedDev = await Dev.findById(user);
+
+        const users = await Dev.find({ // filtros para busca
+            $and: [
+                { _id: { $ne: user } }, // não aparece o usuario que esta logado
+                { _id: { $nin: loggedDev.likes } }, // não aparece os usuario que dei like
+                { _id: { $nin: loggedDev.deslikes } } // não aparece os usuarios que dei deslike
+            ],
+        })
+        return res.json(users);
+    },
+
     async store(req, res) {
 
         const { username } = req.body;

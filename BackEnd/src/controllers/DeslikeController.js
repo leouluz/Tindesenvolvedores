@@ -1,6 +1,7 @@
 const Dev = require('../models/Dev');
 
 module.exports = {
+
     async store(req, res) {
         const { user } = req.headers;
         const { devId } = req.params;
@@ -12,14 +13,11 @@ module.exports = {
             return res.status(400).json({ error: 'Dev not exists!' });
         }
 
-        if (targetDev.likes.includes(loggedDev._id)) {
-            console.log('DEU MATCH!');
-        }
-
-        loggedDev.likes.push(targetDev._id); //logged dando like, likes é um vetor, e push adiciona informações ao vetor.
+        loggedDev.deslikes.push(targetDev._id); //logged dando like, likes é um vetor, e push adiciona informações ao vetor.
 
         await loggedDev.save();
 
         return res.json(loggedDev);
     }
+
 }
