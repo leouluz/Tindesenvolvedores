@@ -1,18 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import './Main.css';
+
+import api from '../services/api';
 
 import logo from '../assets/logo.svg';
 import dislike from '../assets/dislike.svg';
 import like from '../assets/like.svg';
 import tuliao from '../assets/tuliao.jpg';
 
-import './Main.css';
-
 export default function Main({ match }) {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        async function loadUsers() {
+            const response = await api.get('/devs', {
+                headers: {
+                    user: match.params.id,
+                }
+            });
+            setUsers(response.data);
+        }
+        loadUsers();
+    }, [match.params.id]);
+
+
+
+
+
     return (
         <div className="main-container">
             <img src={logo} alt="tindev"></img>
             <ul>
-
+                {users.map(user => (
+                    <li key={user._id}>
+                        <img src={user.avatar} alt={user.name}></img>
+                        <footer>
+                            <strong>{user.name}</strong>
+                            <p>{user.bio}</p>
+                        </footer>
+                        <div className="buttons" >
+                            <button type="button" >
+                                <img src={like} alt="like"></img>
+                            </button>
+                            <button type="button" >
+                                <img src={dislike} alt="dislike"></img>
+                            </button>
+                        </div>
+                    </li>
+                ))}
                 <li>
                     <img src="https://scontent.faqa1-1.fna.fbcdn.net/v/t1.0-9/1003834_362243753902196_214223430_n.jpg?_nc_cat=110&_nc_oc=AQlTfA7y9X4u8MUNqK3xsps4BFcfuxoGhKFQmacdAOFqiCNL_ZprBqcLv2k1R0Zhcto&_nc_ht=scontent.faqa1-1.fna&oh=c568cdf19a4bf6ec73c8ebb0b1068764&oe=5E0761A1" alt="avatar"></img>
                     <footer>
