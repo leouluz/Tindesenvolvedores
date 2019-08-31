@@ -6,7 +6,7 @@
 }
 .main-container ul{
     list-style: none;
-    display: grid;
+    /* display: grid; */
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
     margin-top: 50px;
@@ -60,4 +60,15 @@
     color: #999;
     font-weight: bold;
     margin-top: 250px;
+}
+
+@media (max-width: 420px) {
+
+    /* .main-container ul {
+        padding: 0 20px;
+    }
+    .main-container ul li {
+        flex-direction: row-reverse;
+        margin-bottom: 50px;
+    } */
 }
