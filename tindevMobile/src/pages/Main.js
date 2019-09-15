@@ -10,32 +10,32 @@ import dislike from '../assets/dislike.png';
 export default function Main(){
   return (
     <SafeAreaView style={styles.container}>
-    <Image style={logo} source={logo}/>
+      <Image style={logo} source={logo}/>
 
       <View style={styles.cardsContainer}>
         <View style={[styles.card, {zIndex: 3}]}>
-          <Image styles={styles.avatar} source={avatar_leo}/>
+          <Image style={styles.avatar} source={avatar_leo}/>
             <View style={styles.footer}>
               <Text style={styles.name}> Leonardo Luz 3</Text>
               <Text style={styles.bio} numberOfLines={3}> CTO na Risenv. Apaixonado pelas tecnologias react-native e node.js</Text>
             </View>
         </View>
         <View style={[styles.card, {zIndex: 2}]}>
-          <Image styles={styles.avatar} source={avatar_leo}/>
+          <Image style={styles.avatar} source={avatar_leo}/>
             <View style={styles.footer}>
               <Text style={styles.name}> Leonardo Luz 2</Text>
               <Text style={styles.bio} numberOfLines={3}> CTO na Risenv. Apaixonado pelas tecnologias react-native e node.js</Text>
             </View>
         </View>
         <View style={[styles.card, {zIndex: 1}]}>
-          <Image styles={styles.avatar} source={avatar_leo}/>
+          <Image style={styles.avatar} source={avatar_leo}/>
             <View style={styles.footer}>
               <Text style={styles.name}> Leonardo Luz 1</Text>
               <Text style={styles.bio} numberOfLines={3}> CTO na Risenv. Apaixonado pelas tecnologias react-native e node.js</Text>
             </View>
         </View>
       </View>
-        <View styles={styles.buttonsContainer}>
+        <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button}>
             <Image source={dislike}/>
           </TouchableOpacity>
@@ -93,11 +93,11 @@ const styles = StyleSheet.create({
     lineHeight: 18
   },
   logo:{
-    marginTop:100,
+    marginTop:40
   },
   buttonsContainer:{
     flex:1,
-    marginBottom: 20,
+    marginTop: 560,
     flexDirection: 'row',
   },
   button:{
@@ -117,6 +117,4 @@ const styles = StyleSheet.create({
       height: 2,
     }
   }
-
-
-})
+});
