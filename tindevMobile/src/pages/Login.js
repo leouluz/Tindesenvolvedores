@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
@@ -9,16 +9,16 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import api from '../services/api';
+
 import logo from '../assets/logo.png';
 
 export default function Login({navigation}) {
 
-  function handlerLogin(){
+   function handlerLogin(){
+
     navigation.navigate('Main');
   }
-
-
-
 
 
   return (
