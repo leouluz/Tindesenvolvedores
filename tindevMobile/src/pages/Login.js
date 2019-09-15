@@ -11,7 +11,16 @@ import {
 
 import logo from '../assets/logo.png';
 
-export default function Login() {
+export default function Login({navigation}) {
+
+  function handlerLogin(){
+    navigation.navigate('Main');
+  }
+
+
+
+
+
   return (
     <KeyboardAvoidingView /*Verifica o sistema do usuario e habilita apenas para IOS*/
       behavior="padding"
@@ -27,7 +36,7 @@ export default function Login() {
         style={styles.input}
       />
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity onPress={handlerLogin} style={styles.button}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
